@@ -1,0 +1,17 @@
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  automate_invite:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Invite on label
+        uses: vj-abigo/invite-on-label@v1.3
+        with:
+          organization: chxtech
+          label: hello 👋
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          comment: "<b>📨 Invitation sent</b>"
+        env:
+          INVITE_TOKEN: ${{ secrets.INVITE_TOKEN }}
